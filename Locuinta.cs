@@ -8,7 +8,6 @@ public class Locuinta : Aplicatie
     internal string _Adresa;
     internal double _SuprafataUtila;
    internal TipLocuinta _Tip;
-   internal TipLocuinta _Tip2;
 
     public Locuinta(int id, string adresa, double SuprafataUtila, TipLocuinta tip)
     {
