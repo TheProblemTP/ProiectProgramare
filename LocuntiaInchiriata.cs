@@ -11,8 +11,8 @@ public class LocuntiaInchiriata
    internal double _ChiriePeLuna;
    internal double _Garantie;
    public Locuinta _locuinta;
-    public DateTime DataInceput {get;set;}
-    public DateTime DataSfarsit {get;set;}
+    public DateTime DataInceput {get;}
+    public DateTime DataSfarsit {get;}
 
     public LocuntiaInchiriata(int id, string adresa, double SuprafataUtila, TipLocuinta tip, string numeChirias, string cnpChirias, double chiriePeLuna, double garantie, DateTime dataInceput, DateTime dataSfart, Locuinta locuinta ) 
     {
