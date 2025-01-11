@@ -36,7 +36,7 @@ class Program
                     Locuinta locuinta = aplicatie.GetLocuinta(3);
                     
                     if (locuinta != null) 
-                        LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata(34,"dsff", 435, TipLocuinta.Casa,"Robert","5030201234355",200,50,new DateTime(2004/09/14), new DateTime(1900,04,02)),locuinta);
+                        LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata("Robi", "314245455", 200,100,new DateTime(2004/11/01), new DateTime(2004/11/09),locuinta));
                     else 
                         Console.WriteLine("Locuinta nu exista");
                     Console.WriteLine("Locuinta Adaugata");
@@ -45,7 +45,7 @@ class Program
                     aplicatie.AfisareLocuinte();
                     break;
                 case 4:
-                    aplicatie.AfisareLocuinteInchiriate();
+                    LocuntiaInchiriata.AfisareLocuinteInchiriate();
                     break;
                 case 5:
                     x = false;
