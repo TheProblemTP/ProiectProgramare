@@ -46,7 +46,7 @@ public class LocuntiaInchiriata
         foreach (var locuinta in locuinteInchiriate)
         {
             Console.WriteLine(
-                " Nume Chirias este {4}, Cnp e {5}, Chirie pe luna e {6} si Garantia e {7}", 
+                " Nume Chirias este {0}, Cnp e {1}, Chirie pe luna e {2} si Garantia e {3}", 
                  locuinta._NumeChirias,locuinta._CNPChririas,locuinta._ChiriePeLuna,locuinta._Garantie);
         }
        
