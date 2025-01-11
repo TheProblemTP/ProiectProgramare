@@ -26,7 +26,7 @@ public class LocuntiaInchiriata
     }
     
     
-    public void AdaugaLocuinteInchiriate(LocuntiaInchiriata  locuinta)
+    public static void AdaugaLocuinteInchiriate(LocuntiaInchiriata  locuinta)
     {
         foreach (var locuintaInchiriata in locuinteInchiriate)
         {
@@ -39,6 +39,17 @@ public class LocuntiaInchiriata
                 }
         }
         locuinteInchiriate.Add(locuinta);
+    }
+
+    public  static void AfisareLocuinteInchiriate()
+    {
+        foreach (var locuinta in locuinteInchiriate)
+        {
+            Console.WriteLine(
+                " Nume Chirias este {4}, Cnp e {5}, Chirie pe luna e {6} si Garantia e {7}", 
+                 locuinta._NumeChirias,locuinta._CNPChririas,locuinta._ChiriePeLuna,locuinta._Garantie);
+        }
+       
     }
     
     
