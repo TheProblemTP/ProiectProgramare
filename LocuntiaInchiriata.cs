@@ -61,7 +61,7 @@ public class LocuntiaInchiriata
         int inchiriate = 0, disponibile = 0, total=0, nrInchirieri=0;
         double sumaDuratelor=0, durataMedie=0;
         double pret;
-        pret = _ChiriePeLuna / _SuprafataUtila;
+        pret = _ChiriePeLuna / _locuinta._SuprafataUtila;
         Console.WriteLine("Pretul pe suprafata utila este : {0}", pret);
 
         foreach (var locuinta in locuinteInchiriate)
