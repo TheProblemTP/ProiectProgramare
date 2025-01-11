@@ -1,6 +1,6 @@
 namespace Proiect;
 
-public class AplicatieImplementare : Aplicatie
+public class ManagementLocuinte : Aplicatie
 {
     public override void AdaugaLocuinte(Locuinta locuinta)
     {
@@ -8,10 +8,7 @@ public class AplicatieImplementare : Aplicatie
         locuinte.Add(locuinta);
     }
 
-    public override void AdaugaLocuinteInchiriate(LocuntiaInchiriata  locuinta)
-    {
-        locuinteInchiriate.Add(locuinta);
-    }
+    
 
     public override void AfisareLocuinte()
     {
@@ -23,14 +20,8 @@ public class AplicatieImplementare : Aplicatie
         }
     }
 
-    public override void AfisareLocuinteInchiriate()
-    {
-        foreach (var locuinta in locuinteInchiriate)
-        {
-            Console.WriteLine(
-                "Id-ul locuintei este {0}, Adresa locuintei e {1}, Suprafata Utila este {2}, Tipul este {3}, Nume Chirias este {4}, Cnp e {5}, Chirie pe luna e {6} si Garantia e {7}", 
-            locuinta._Id, locuinta._Adresa, locuinta._SuprafataUtila, locuinta._Tip, locuinta._NumeChirias,locuinta._CNPChririas,locuinta._ChiriePeLuna,locuinta._Garantie);
-        }
+ 
+        
        
     }
-}
+    

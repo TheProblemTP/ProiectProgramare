@@ -9,20 +9,17 @@ class Program
     static void Main(string[] args)
     {
 
-        foreach (var item in Aplicatie.locuinteInchiriate)
-        {
-            
-        }
+     
         
         
         
-        var aplicatie = new AplicatieImplementare();
+        var aplicatie = new ManagementLocuinte();
         bool x = true;
         Locuinta locuinta1 = new Locuinta(423423, "Tulpina", 233, TipLocuinta.Apartament);
         while (x)
         {
-            Console.WriteLine("1. Adaugă locuință detinuta");
-            Console.WriteLine("2. Adauga locuinta inchiriata");
+            Console.WriteLine("1. Adaugă locuință");
+            Console.WriteLine("2. ");
             Console.WriteLine("3. Vizualizeaza locuinte detinute");
             Console.WriteLine("4. Vizualizează locuințe închiriate");
             Console.WriteLine("5. Ieșire");
@@ -36,7 +33,12 @@ class Program
                    Console.WriteLine("Locuinta Adaugata");
                     break;
                 case 2:
-                    aplicatie.AdaugaLocuinteInchiriate(new LocuntiaInchiriata(34,"dsff", 435, TipLocuinta.Casa,"Robert","5030201234355",200,50,new DateTime(2004/09/14), new DateTime(1900,04,02)));
+                    Locuinta locuinta = aplicatie.GetLocuinta(3);
+                    
+                    if (locuinta != null) 
+                        LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata(34,"dsff", 435, TipLocuinta.Casa,"Robert","5030201234355",200,50,new DateTime(2004/09/14), new DateTime(1900,04,02)),locuinta);
+                    else 
+                        Console.WriteLine("Locuinta nu exista");
                     Console.WriteLine("Locuinta Adaugata");
                     break;
                 case 3:

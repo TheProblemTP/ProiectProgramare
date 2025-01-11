@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace Proiect;
 public enum TipLocuinta {Apartament, Casa}
-public class Locuinta : Aplicatie
+public class Locuinta
 {
     internal int _Id;
     internal string _Adresa;

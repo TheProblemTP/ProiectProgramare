@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Proiect;
 
-public class LocuntiaInchiriata : Locuinta
+public class LocuntiaInchiriata
 {
-   
+    public static List<LocuntiaInchiriata> locuinteInchiriate = new List<LocuntiaInchiriata>();
    internal string _NumeChirias;
    internal string _CNPChririas;
    internal double _ChiriePeLuna;
    internal double _Garantie;
+   public Locuinta _locuinta;
     public DateTime DataInceput {get;set;}
     public DateTime DataSfarsit {get;set;}
 
-    public LocuntiaInchiriata(int id, string adresa, double SuprafataUtila, TipLocuinta tip, string numeChirias, string cnpChirias, double chiriePeLuna, double garantie, DateTime dataInceput, DateTime dataSfart ) 
-        : base( id, adresa, SuprafataUtila,  tip)
+    public LocuntiaInchiriata(int id, string adresa, double SuprafataUtila, TipLocuinta tip, string numeChirias, string cnpChirias, double chiriePeLuna, double garantie, DateTime dataInceput, DateTime dataSfart, Locuinta locuinta ) 
     {
        _NumeChirias = numeChirias;
        _CNPChririas=  cnpChirias;
@@ -22,9 +22,36 @@ public class LocuntiaInchiriata : Locuinta
        _Garantie= garantie;
        DataInceput = dataInceput;
        DataSfarsit = dataSfart;
+       _locuinta = locuinta;
     }
     
     
+    public void AdaugaLocuinteInchiriate(LocuntiaInchiriata  locuinta)
+    {
+        foreach (var locuintaInchiriata in locuinteInchiriate)
+        {
+            // un if ca locuinta pe care vreau sa o inchiriez nu este deja inchiriata pe perioada specficata
+            if (locuintaInchiriata._locuinta == locuinta._locuinta)
+                if (locuintaInchiriata.DataInceput < locuinta.DataInceput)
+                {
+                    Console.WriteLine("Locuinta deja inchiriata");
+                    return; 
+                }
+        }
+        locuinteInchiriate.Add(locuinta);
+    }
+    
+    
+    public  void AfisareLocuinteInchiriate()
+    {
+        foreach (var locuinta in locuinteInchiriate)
+        {
+            Console.WriteLine(
+                "Id-ul locuintei este {0}, Adresa locuintei e {1}, Suprafata Utila este {2}, Tipul este {3}, Nume Chirias este {4}, Cnp e {5}, Chirie pe luna e {6} si Garantia e {7}", 
+                _locuinta., locuinta._Adresa, locuinta._SuprafataUtila, locuinta._Tip, locuinta._NumeChirias,locuinta._CNPChririas,locuinta._ChiriePeLuna,locuinta._Garantie);
+        }
+       
+    }
     
     
 
