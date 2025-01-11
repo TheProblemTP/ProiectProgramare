@@ -11,10 +11,10 @@ public class LocuntiaInchiriata
    internal double _ChiriePeLuna;
    internal double _Garantie;
    public Locuinta _locuinta;
-    public DateTime DataInceput {get;set;}
-    public DateTime DataSfarsit {get;set;}
+    public DateTime DataInceput {get;}
+    public DateTime DataSfarsit {get;}
 
-    public LocuntiaInchiriata(int id, string adresa, double SuprafataUtila, TipLocuinta tip, string numeChirias, string cnpChirias, double chiriePeLuna, double garantie, DateTime dataInceput, DateTime dataSfart, Locuinta locuinta ) 
+    public LocuntiaInchiriata( string numeChirias, string cnpChirias, double chiriePeLuna, double garantie, DateTime dataInceput, DateTime dataSfart, Locuinta locuinta ) 
     {
        _NumeChirias = numeChirias;
        _CNPChririas=  cnpChirias;
@@ -26,7 +26,7 @@ public class LocuntiaInchiriata
     }
     
     
-    public void AdaugaLocuinteInchiriate(LocuntiaInchiriata  locuinta)
+    public static void AdaugaLocuinteInchiriate(LocuntiaInchiriata  locuinta)
     {
         foreach (var locuintaInchiriata in locuinteInchiriate)
         {
@@ -42,13 +42,12 @@ public class LocuntiaInchiriata
     }
     
     
-    public  void AfisareLocuinteInchiriate()
+    public  static void AfisareLocuinteInchiriate()
     {
         foreach (var locuinta in locuinteInchiriate)
         {
-            Console.WriteLine(
-                "Id-ul locuintei este {0}, Adresa locuintei e {1}, Suprafata Utila este {2}, Tipul este {3}, Nume Chirias este {4}, Cnp e {5}, Chirie pe luna e {6} si Garantia e {7}", 
-                _locuinta., locuinta._Adresa, locuinta._SuprafataUtila, locuinta._Tip, locuinta._NumeChirias,locuinta._CNPChririas,locuinta._ChiriePeLuna,locuinta._Garantie);
+            Console.WriteLine(" Nume Chirias este {0}, Cnp e {1}, Chirie pe luna e {2} si Garantia e {3}", 
+                 locuinta._NumeChirias,locuinta._CNPChririas,locuinta._ChiriePeLuna,locuinta._Garantie);
         }
        
     }
@@ -60,7 +59,7 @@ public class LocuntiaInchiriata
         int inchiriate = 0, disponibile = 0, total=0, nrInchirieri=0;
         double sumaDuratelor=0, durataMedie=0;
         double pret;
-        pret = _ChiriePeLuna / _SuprafataUtila;
+        pret = _ChiriePeLuna / _locuinta._SuprafataUtila;
         Console.WriteLine("Pretul pe suprafata utila este : {0}", pret);
 
         foreach (var locuinta in locuinteInchiriate)
@@ -68,7 +67,7 @@ public class LocuntiaInchiriata
                 inchiriate = inchiriate + 1;
         }
 
-        foreach (var locuinta in locuinte)
+        foreach (var locuinta in ManagementLocuinte.locuinte)
         {
             total = total + 1;
         }
@@ -100,7 +99,7 @@ public class LocuntiaInchiriata
             if (locuinta.DataInceput >= DataStart && locuinta.DataSfarsit >= DataEnd)
             {
                 Durata = (locuinta.DataSfarsit - locuinta.DataInceput).TotalDays;
-                Suma = Suma + Durata * ChiriePeZi;
+                Suma = Suma + (Durata * ChiriePeZi);
             }
         }
         

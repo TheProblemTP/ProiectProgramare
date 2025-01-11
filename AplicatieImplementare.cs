@@ -20,8 +20,17 @@ public class ManagementLocuinte : Aplicatie
         }
     }
 
- 
+    public Locuinta GetLocuinta(int id)
+    {
+        foreach (var locuinta in locuinte)
+        {
+            if(locuinta._Id == id)
+                return locuinta;
+        }
         
-       
+        return null;
     }
+
+   
     
+}

@@ -8,24 +8,25 @@ class Program
 {
     static void Main(string[] args)
     {
-
-     
-        
-        
-        
         var aplicatie = new ManagementLocuinte();
         bool x = true;
+        
         Locuinta locuinta1 = new Locuinta(423423, "Tulpina", 233, TipLocuinta.Apartament);
+        
+        LocuntiaInchiriata LocuntiaInchiriata = new LocuntiaInchiriata("Robi", "314245455", 200,100,new DateTime(2004/11/01), new DateTime(2004/11/09),locuinta1);
+
         while (x)
-        {
+        { 
+            
             Console.WriteLine("1. Adaugă locuință");
-            Console.WriteLine("2. ");
+            Console.WriteLine("2. Adauga locuinta inchiriata dupa id");
             Console.WriteLine("3. Vizualizeaza locuinte detinute");
             Console.WriteLine("4. Vizualizează locuințe închiriate");
-            Console.WriteLine("5. Ieșire");
+            Console.WriteLine("5. Afisare Venituri");
+            Console.WriteLine("6. Afisare rapoarte ");
+            Console.WriteLine("7. Ieșire");
             Console.Write("Alege opțiunea: ");
             int optiune = int.Parse(Console.ReadLine());
-
             switch (optiune)
             {
                 case 1:
@@ -33,10 +34,12 @@ class Program
                    Console.WriteLine("Locuinta Adaugata");
                     break;
                 case 2:
-                    Locuinta locuinta = aplicatie.GetLocuinta(3);
-                    
-                    if (locuinta != null) 
-                        LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata(34,"dsff", 435, TipLocuinta.Casa,"Robert","5030201234355",200,50,new DateTime(2004/09/14), new DateTime(1900,04,02)),locuinta);
+                    Console.WriteLine("Scrie id-ul locuintei care vrei sa fie inchiriata");
+                    int identificator = int.Parse(Console.ReadLine());
+                    Locuinta locuinta = aplicatie.GetLocuinta(identificator);
+
+                    if (locuinta != null)
+                        LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata("Robi", "314245455", 200,100,new DateTime(2004/11/01), new DateTime(2004/11/09),locuinta));
                     else 
                         Console.WriteLine("Locuinta nu exista");
                     Console.WriteLine("Locuinta Adaugata");
@@ -45,9 +48,14 @@ class Program
                     aplicatie.AfisareLocuinte();
                     break;
                 case 4:
-                    aplicatie.AfisareLocuinteInchiriate();
+                    LocuntiaInchiriata.AfisareLocuinteInchiriate();
                     break;
-                case 5:
+                case 5: LocuntiaInchiriata.Venituri(new DateTime(2004/11/01), new DateTime(2004/11/09));
+                    break;
+                case 6:  LocuntiaInchiriata.Rapoarte();
+                    break;
+                
+                case 7:
                     x = false;
                     break;
                 default:

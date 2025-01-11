@@ -4,7 +4,7 @@ namespace Proiect;
 
 public abstract class Aplicatie 
 {
-    protected static List<Locuinta> locuinte = new List<Locuinta>();
+    public static List<Locuinta> locuinte = new List<Locuinta>();
  
     private List<Sesizare> sesizari = new List<Sesizare>();
     
