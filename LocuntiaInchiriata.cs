@@ -69,7 +69,7 @@ public class LocuntiaInchiriata
                 inchiriate = inchiriate + 1;
         }
 
-        foreach (var locuinta in locuinte)
+        foreach (var locuinta in ManagementLocuinte.locuinte)
         {
             total = total + 1;
         }
