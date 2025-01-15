@@ -45,16 +45,45 @@ while (x)
     Console.WriteLine("4. Vizualizează locuințe închiriate");
     Console.WriteLine("5. Afisare Venituri");
     Console.WriteLine("6. Afisare rapoarte ");
-    Console.WriteLine("7. Salveaza in fisier");
+    Console.WriteLine("7. Salveaza in fisier locuinte detinute");
+    Console.WriteLine("8. Salveaza in fisier locuinte inchiriate");
     Console.WriteLine("8.Editeaza o locuinta");
-    Console.WriteLine("8. Ieșire");
+    Console.WriteLine("9. Iesire");
     Console.Write("Alege opțiunea: ");
     int optiune = int.Parse(Console.ReadLine());
     switch (optiune)
     {
         case 1:
-           aplicatie.AdaugaLocuinte(new Locuinta(3,"daff", 32,TipLocuinta.Apartament));
-           Console.WriteLine("Locuinta Adaugata");
+            Console.Write("Scrie id-ul: ");
+           int id = int.Parse(Console.ReadLine());
+            Console.Write("Scrie Adresa:  ");
+            string adres = Console.ReadLine();
+            Console.Write("Scrie Adresa:  ");
+            int suprafata = int.Parse(Console.ReadLine());
+
+            TipLocuinta? locui=null;
+            Console.WriteLine("Alege Tipul: ");
+            Console.WriteLine("1. Apartament ");
+            Console.WriteLine("2. Casa ");
+            Console.Write("Alege tipul dorit: ");
+            int o5 = int.Parse(Console.ReadLine());
+            switch (o5)
+            {
+                case 1:
+                    locui = TipLocuinta.Apartament;
+                    break;
+                case 2:
+                   locui = TipLocuinta.Casa;
+                    break;
+                default: Console.WriteLine("Tip invalid nu s-a creeat locuinta");
+                    break;
+            }
+
+            if (locui != null)
+            {
+                aplicatie.AdaugaLocuinte(new Locuinta(id, adres, suprafata,locui));
+                Console.WriteLine("Locuinta Adaugata");
+            }
             break;
         case 2:
             Console.WriteLine("Scrie id-ul locuintei care vrei sa fie inchiriata");
@@ -62,10 +91,34 @@ while (x)
             Locuinta locuinta = aplicatie.GetLocuinta(identificator);
 
             if (locuinta != null)
-                LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata("Robi", "314245455", 200,100,new DateTime(2004/11/01), new DateTime(2004/11/09),locuinta));
+            {
+                Console.Write("Scrie numele chiriasului: ");
+                string numeChirias = Console.ReadLine();
+                Console.Write("Scrie cnp chiriasului: ");
+                string cnpChirias = Console.ReadLine();
+                Console.Write("Scrie chiria pe luna a chiriasului: ");
+                int chiriepeluna = int.Parse(Console.ReadLine());
+                Console.Write("Scrie garantia chiriasului: ");
+                int garantie = int.Parse(Console.ReadLine());
+                Console.Write("Scrie Ziua din data in care incepe inchirierea:  ");
+                int d1 = int.Parse(Console.ReadLine());
+                Console.Write("Scrie luna din data in care incepe inchirierea:  ");
+                int m1 = int.Parse(Console.ReadLine());
+                Console.Write("Scrie anul din data in care incepe inchirierea:  ");
+                int y1 = int.Parse(Console.ReadLine());
+                Console.Write("Scrie Ziua din data in care se incheie inchirierea:  ");
+                int d2 = int.Parse(Console.ReadLine());
+                Console.Write("Scrie luna din data  in care se incheie inchirierea:  ");
+                int m2 = int.Parse(Console.ReadLine());
+                Console.Write("Scrie anul din data  in care se incheie inchirierea:  ");
+                int y2 = int.Parse(Console.ReadLine());
+                
+                LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata("Robi", "314245455", 200, 100,
+                    new DateTime(y1 / m1 / d1), new DateTime(y2 / m2 / d2), locuinta));
+            }
             else
                 Console.WriteLine("Locuinta nu exista");
-            Console.WriteLine("Locuinta Adaugata");
+            Console.WriteLine("Locuinta Inchiriata Adaugata");
             break;
         case 3:
             aplicatie.AfisareLocuinte();
@@ -73,7 +126,21 @@ while (x)
         case 4:
             LocuntiaInchiriata.AfisareLocuinteInchiriate();
             break;
-        case 5: LocuntiaInchiriata.Venituri(new DateTime(2004/11/01), new DateTime(2004/11/09));
+        case 5:
+            Console.Write("Scrie Ziua din data in care vrei sa inceapa veniturile:  ");
+            int d3 = int.Parse(Console.ReadLine());
+            Console.Write("Scrie luna din data in care vrei sa inceapa veniturile:  ");
+            int m3 = int.Parse(Console.ReadLine());
+            Console.Write("Scrie anul din data in care vrei sa inceapa veniturile:   ");
+            int y3 = int.Parse(Console.ReadLine());
+            Console.Write("Scrie Ziua din data in care se incheie veniturile:  ");
+            int d4 = int.Parse(Console.ReadLine());
+            Console.Write("Scrie luna din data  in care se incheie veniturile:  ");
+            int m4 = int.Parse(Console.ReadLine());
+            Console.Write("Scrie anul din data  in care se incheie veniturile:  ");
+            int y4 = int.Parse(Console.ReadLine());
+            
+            LocuntiaInchiriata.Venituri(new DateTime(y3/m3/d3), new DateTime(y4/m4/d4));
             break;
         case 6:  LocuntiaInchiriata.Rapoarte();
             break;
@@ -147,11 +214,11 @@ while (x)
 
                 
             }
-          
-            
-            
-            
             break;
+        
+        case 9: x = false;
+            break;
+            
         default:
             Console.WriteLine("Comanda invalida");
             break;
