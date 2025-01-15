@@ -58,9 +58,10 @@ while (x)
            int id = int.Parse(Console.ReadLine());
             Console.Write("Scrie Adresa:  ");
             string adres = Console.ReadLine();
-            Console.Write("Scrie suprafata uitla:  ");
+            Console.Write("Scrie Adresa:  ");
             int suprafata = int.Parse(Console.ReadLine());
-
+            
+            
             TipLocuinta? locui=null;
             Console.WriteLine("Alege Tipul: ");
             Console.WriteLine("1. Apartament ");
