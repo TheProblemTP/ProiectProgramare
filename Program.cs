@@ -58,7 +58,7 @@ while (x)
            int id = int.Parse(Console.ReadLine());
             Console.Write("Scrie Adresa:  ");
             string adres = Console.ReadLine();
-            Console.Write("Scrie Adresa:  ");
+            Console.Write("Scrie Suprafata:  ");
             int suprafata = int.Parse(Console.ReadLine());
             
             
