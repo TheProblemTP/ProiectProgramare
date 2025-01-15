@@ -52,20 +52,6 @@ public class LocuntiaInchiriata
        
     }
     
-    
-   public Locuinta GetLocuinta(int id)
-    {
-        foreach (var locuinta in locuinte)
-        {
-            if(locuinta._Id == id)
-                return locuinta;
-        }
-
-        return null;
-    }
-    Console.WriteLine(" Nume Chirias este {4}, Cnp e {5}, Chirie pe luna e {6} si Garantia e {7}",locuinta._NumeChirias,locuinta._CNPChririas,locuinta._ChiriePeLuna,locuinta._Garantie);
-    
-    
 
     public static void Rapoarte()
     {

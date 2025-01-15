@@ -22,7 +22,6 @@ class Program
         JsonSerializerOptions options = new JsonSerializerOptions { IncludeFields = true };
         /*
     
-        
         string locuinta1Str = JsonSerializer.Serialize(Aplicatie.locuinte, options);
         using (StreamWriter outputFile = new StreamWriter( "Adauga.txt"))
         {
