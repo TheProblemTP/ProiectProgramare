@@ -12,6 +12,11 @@ class Program
 {
     static void Main(string[] args)
     {
+
+     
+        
+        
+        
         var aplicatie = new ManagementLocuinte();
         bool x = true;
         JsonSerializerOptions options = new JsonSerializerOptions { IncludeFields = true };
