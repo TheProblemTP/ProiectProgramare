@@ -6,7 +6,7 @@ namespace Proiect;
 public class LocuntiaInchiriata
 {
     public static List<LocuntiaInchiriata> locuinteInchiriate = new List<LocuntiaInchiriata>();
-   internal string _NumeChirias;
+  public string _NumeChirias;
    internal string _CNPChririas;
    internal double _ChiriePeLuna;
    internal double _Garantie;
@@ -54,13 +54,16 @@ public class LocuntiaInchiriata
     
     
 
-    public void Rapoarte()
+    public static void Rapoarte()
     {
         int inchiriate = 0, disponibile = 0, total=0, nrInchirieri=0;
         double sumaDuratelor=0, durataMedie=0;
-        double pret;
-        pret = _ChiriePeLuna / _locuinta._SuprafataUtila;
-        Console.WriteLine("Pretul pe suprafata utila este : {0}", pret);
+        foreach (var locuinta in locuinteInchiriate)
+        {
+           double pret = locuinta._ChiriePeLuna /  locuinta._locuinta._SuprafataUtila;
+           Console.WriteLine("Pretul pe suprafata utila este pentru adresa {0} : {1}",locuinta._locuinta._Adresa, pret);
+        }
+       
 
         foreach (var locuinta in locuinteInchiriate)
         {
@@ -90,12 +93,13 @@ public class LocuntiaInchiriata
         Console.WriteLine("Durata medie a inchirierilor este : {0}", durataMedie);
     }
 
-    public void Venituri(DateTime DataStart, DateTime DataEnd)
+    public static void Venituri(DateTime DataStart, DateTime DataEnd)
     {
-        double Durata=0, ChiriePeZi = _ChiriePeLuna / 30, Suma=0;
+        double Durata=0, Suma=0;
 
         foreach (var locuinta in locuinteInchiriate)
         {
+            double ChiriePeZi = locuinta._ChiriePeLuna / 30;
             if (locuinta.DataInceput >= DataStart && locuinta.DataSfarsit >= DataEnd)
             {
                 Durata = (locuinta.DataSfarsit - locuinta.DataInceput).TotalDays;
