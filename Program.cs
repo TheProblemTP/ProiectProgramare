@@ -12,11 +12,6 @@ class Program
 {
     static void Main(string[] args)
     {
-
-     
-        
-        
-        
         var aplicatie = new ManagementLocuinte();
         bool x = true;
         JsonSerializerOptions options = new JsonSerializerOptions { IncludeFields = true };
@@ -63,7 +58,7 @@ while (x)
            int id = int.Parse(Console.ReadLine());
             Console.Write("Scrie Adresa:  ");
             string adres = Console.ReadLine();
-            Console.Write("Scrie Adresa:  ");
+            Console.Write("Scrie suprafata uitla:  ");
             int suprafata = int.Parse(Console.ReadLine());
 
             TipLocuinta? locui=null;
@@ -226,11 +221,7 @@ while (x)
                         break;
                     default: Console.WriteLine(" Optiune invalida");
                         break;
-                        
-
                 }
-
-                
             }
             break;
         
