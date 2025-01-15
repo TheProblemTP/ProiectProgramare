@@ -51,8 +51,9 @@ while (x)
     Console.WriteLine("6. Afisare rapoarte ");
     Console.WriteLine("7. Salveaza in fisier locuinte detinute");
     Console.WriteLine("8. Salveaza in fisier locuinte inchiriate");
-    Console.WriteLine("8.Editeaza o locuinta");
-    Console.WriteLine("9. Iesire");
+    Console.WriteLine("9.Editeaza o locuinta detinuta");
+    Console.WriteLine("10.Editeaza o locuinta inchiriata");
+    Console.WriteLine("11. Iesire");
     Console.Write("Alege opțiunea: ");
     int optiune = int.Parse(Console.ReadLine());
     switch (optiune)
@@ -160,7 +161,20 @@ while (x)
             Console.WriteLine("S-a salvat in fisier");
             
             break;
-        case 8: Console.WriteLine("Ce locuinta vrei sa editezi: ");
+        
+        case 8:
+            string locuintainchiriataStr = JsonSerializer.Serialize(LocuntiaInchiriata.locuinteInchiriate, options);
+            using (StreamWriter outputFile = new StreamWriter( "AdaugaLocInchiriate.txt"))
+            {
+          
+                outputFile.WriteLine(locuintainchiriataStr);
+            }
+            
+            Console.WriteLine("S-a salvat in fisier");
+            
+            break;
+        
+        case 9: Console.WriteLine("Ce locuinta vrei sa editezi: ");
             int i = 1;
             foreach (var locuintaa in Aplicatie.locuinte)
             {
@@ -220,7 +234,75 @@ while (x)
             }
             break;
         
-        case 9: x = false;
+        case 10: 
+            
+                Console.WriteLine("Ce locuinta inchiriata vrei sa editezi: ");
+            int j = 1;
+            foreach (var locuintaaei in LocuntiaInchiriata.locuinteInchiriate)
+            {
+                Console.WriteLine(j + " " + locuintaaei);
+                j++;
+            }
+            Console.Write("Alege Inca o optiune: ");
+            int o8 = int.Parse(Console.ReadLine());
+         
+            if(o8-1 < 0 || o8-1 >=LocuntiaInchiriata.locuinteInchiriate.Count)
+                Console.WriteLine("Locuinta invalida");
+            else
+            {
+                LocuntiaInchiriata locuintaselect = LocuntiaInchiriata.locuinteInchiriate[o8 - 1];
+                Console.WriteLine("Ce vrei sa editezi: ");
+                Console.WriteLine("1. Editeaza Numele Chiriasului");
+                Console.WriteLine("2. Editeaza Cnpul Chiriasului");
+                Console.WriteLine("3. Editeaza Chiria Pe Luna ");
+                Console.WriteLine("4. Editeaza Garantia ");
+                Console.WriteLine("5. Editeaza Data Start de inchiriere ");
+                Console.WriteLine("6. Editeaza Data de sfarsit pentru inchiriere ");
+                Console.Write("Alege Inca o optiune: ");
+                int o10 = int.Parse(Console.ReadLine());
+
+                switch (o10)
+                {
+                    case 1:
+                        string Jedi = Console.ReadLine();
+                        locuintaselect._NumeChirias = Jedi;
+                        break;
+                    case 2:
+                        string Vincent = Console.ReadLine();
+                        locuintaselect._CNPChririas = Vincent;
+                        break;
+                    case 3:
+                        int Chiriepeluna = int.Parse(Console.ReadLine());
+                        locuintaselect._ChiriePeLuna = Chiriepeluna;
+                        break;
+                    case 4:
+                        int Garantie = int.Parse(Console.ReadLine());
+                        locuintaselect._Garantie = Garantie;
+                        break;
+                    case 5:
+                        Console.WriteLine("Scrie ziua datii de inceput pe care vrei sa o pui: ");
+                        int d6 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Scrie luna datii de inceput pe care vrei sa o pui: ");
+                        int m6 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Scrie anul datii de inceput pe care vrei sa o pui: ");
+                        int y6 = int.Parse(Console.ReadLine());
+                        locuintaselect.DataInceput=new DateTime(y6/m6/d6);
+                        break;
+                    
+                    case 6:
+                        Console.WriteLine("Scrie ziua datii de inceput pe care vrei sa o pui: ");
+                        int d7 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Scrie luna datii de inceput pe care vrei sa o pui: ");
+                        int m7 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Scrie anul datii de inceput pe care vrei sa o pui: ");
+                        int y7 = int.Parse(Console.ReadLine());
+                        locuintaselect.DataSfarsit=new DateTime(y7/m7/d7);
+                        break;
+                }
+            }
+
+            break;
+        case 11: x = false;
             break;
             
         default:

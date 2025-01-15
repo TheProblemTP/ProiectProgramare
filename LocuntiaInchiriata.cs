@@ -7,12 +7,15 @@ public class LocuntiaInchiriata
 {
     public static List<LocuntiaInchiriata> locuinteInchiriate = new List<LocuntiaInchiriata>();
   public string _NumeChirias;
-   internal string _CNPChririas;
-   internal double _ChiriePeLuna;
-   internal double _Garantie;
+   public string _CNPChririas;
+  public double _ChiriePeLuna;
+   public double _Garantie;
    public Locuinta _locuinta;
-    public DateTime DataInceput {get;}
-    public DateTime DataSfarsit {get;}
+    public DateTime DataInceput {get; set; }
+    public DateTime DataSfarsit {get; set; }
+    
+    /// sunt publice pentru a putea fi citite si suprascrise de catre calasa JsonSerializer
+
 
     public LocuntiaInchiriata( string numeChirias, string cnpChirias, double chiriePeLuna, double garantie, DateTime dataInceput, DateTime dataSfart, Locuinta locuinta ) 
     {
