@@ -116,10 +116,14 @@ while (x)
                 
                 LocuntiaInchiriata.AdaugaLocuinteInchiriate(new LocuntiaInchiriata("Robi", "314245455", 200, 100,
                     new DateTime(y1 / m1 / d1), new DateTime(y2 / m2 / d2), locuinta));
+                Console.WriteLine("Locuinta Inchiriata Adaugata");
             }
             else
+            {
                 Console.WriteLine("Locuinta nu exista");
-            Console.WriteLine("Locuinta Inchiriata Adaugata");
+            }
+
+           
             break;
         case 3:
             aplicatie.AfisareLocuinte();
