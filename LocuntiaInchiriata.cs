@@ -35,7 +35,7 @@ public class LocuntiaInchiriata
         {
             // un if ca locuinta pe care vreau sa o inchiriez nu este deja inchiriata pe perioada specficata
             if (locuintaInchiriata._locuinta == locuinta._locuinta)
-                if (locuintaInchiriata.DataInceput < locuinta.DataInceput)
+                if (locuintaInchiriata.DataInceput < locuinta.DataInceput || locuintaInchiriata.DataSfarsit < locuinta.DataSfarsit)
                 {
                     Console.WriteLine("Locuinta deja inchiriata");
                     return; 
